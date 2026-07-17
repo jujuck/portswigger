@@ -1,0 +1,38 @@
+wiener:peter
+cookie : d2llbmVyOjUxZGMzMGRkYzQ3M2Q0M2E2MDExZTllYmJhNmNhNzcw (Encodage base 64 url)
+Décode : wiener:51dc30ddc473d43a6011e9ebba6ca770
+
+Curl de connexion et analyse
+
+# Sans cookie
+curl -i https://0a33001304de32da81d53571004700a5.web-security-academy.net/my-account?id=wiener
+
+Output :
+*HTTP/2 302
+location: /login
+set-cookie: session=nxrXOVYIF3v9dLKTH6h1dNpfB00gDVKi; Secure; HttpOnly; SameSite=None
+x-frame-options: SAMEORIGIN
+content-length: 0
+
+# Avec le cookie de wiener (celui que tu as déjà, en entier)
+curl -i https://0a33001304de32da81d53571004700a5.web-security-academy.net/my-account?id=wiener \
+  -H "Cookie: stay-logged-in=d2llbmVyOjUxZGMzMGRkYzQ3M2Q0M2E2MDExZTllYmJhNmNhNzcw"
+
+Output
+HTTP/2 200
+content-type: text/html; charset=utf-8
+cache-control: no-cache
+set-cookie: session=qhRtBqNrOHiZkGeLcVHCWVHXqHx5o4qB; Secure; HttpOnly; SameSite=None
+x-frame-options: SAMEORIGIN
+content-length: 3230
+
+# Avec un cookie invalid (celui que tu as déjà, en entier)
+curl -i https://0a33001304de32da81d53571004700a5.web-security-academy.net/my-account?id=wiener \
+  -H "Cookie: stay-logged-in=d2llbmVyOjUxZGMzMGRkYzQ3M2Q0M2E2MDExZTllYmJhN2NhNzcw"
+
+  Output
+  HTTP/2 302
+location: /login
+set-cookie: session=AY4yU8yk4Lbd2lsG7knHUd0Tb2NXuuE0; Secure; HttpOnly; SameSite=None
+x-frame-options: SAMEORIGIN
+content-length: 0
